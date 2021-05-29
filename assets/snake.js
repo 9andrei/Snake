@@ -20,7 +20,7 @@ class Snake {
     }
 
     draw() {
-        this.ctx.fillStyle = "yellow";
+        this.ctx.fillStyle = "black";
             for (let i = 0; i < this.snakeParts.length; i++) {
                 this.part = this.snakeParts[i];
                 this.ctx.fillRect(

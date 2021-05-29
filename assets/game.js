@@ -25,20 +25,24 @@ class Game {
     }
 
     start() {
-       this.interval = setInterval(() => {
-        this.move();
-        this.finish = this.isGameOver();
-            if(this.finish) {
-                return;
-            }
-        this.clear();
-
-       this.draw();
-       this.eat();
-       this.updateScore();
-              
-
-       }, 1000 / this.speed);
+        console.log(this.interval)
+        if (!this.interval) {
+            this.interval = setInterval(() => {
+                this.move();
+                this.finish = this.isGameOver();
+                    if(this.finish) {
+                        return;
+                    };
+                this.clear();
+        
+                this.draw();
+                this.eat();
+                this.updateScore();
+                      
+        
+               }, 1000 / this.speed);
+        }
+       
     }
 
     draw() {
@@ -70,6 +74,7 @@ class Game {
             if (this.score % 5 === 0 ) {
                 this.speed += 5;
                 clearInterval(this.interval);
+                this.interval = null;
                 this.start();
 
             }
@@ -93,9 +98,8 @@ class Game {
             clearInterval(this.interval)
 
         }
-        // console.log(this.snake.headX)
+
         for (let i = 0; i < this.snake.snakeParts.length; i++) {
-            console.log(this.snake.snakeParts[i])
             if (this.snake.headX === this.snake.snakeParts[i].x && 
                 this.snake.headY === this.snake.snakeParts[i].y) {
                     this.gameOver = true;
@@ -103,7 +107,6 @@ class Game {
                     clearInterval(this.interval);
                     break;
             }
-            
         } 
 
         if(this.gameOver) {
@@ -111,8 +114,9 @@ class Game {
             this.ctx.fillRect(0, 0, this.w, this.h)
             this.ctx.fillStyle = "white";
             this.ctx.font = "40px 'Press Start 2P'";
-            this.ctx.fillText("GAME OVER", this.w /2 -30, this.h/2);
-            this.ctx.fillText(`Press "ENTER" to try again`, this.w /2 -55, this.h / 2 + 30 )
+            this.ctx.fillText("GAME OVER", this.w /4, this.h/2);
+            this.ctx.font = "20px 'Press Start 2P'"
+            this.ctx.fillText(`Press "ENTER" to try again`, this.w /8, this.h / 6 * 4)
             this.reset();
         } 
 
