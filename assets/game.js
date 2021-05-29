@@ -19,7 +19,7 @@ class Game {
         this.apple = new Apple(ctx);
 
         this.eatSound = new Audio("./assets/audio/audio_eat.mp3");
-        this.gameOverSound = new Audio("./assets/audio/audio_dead.mp3")
+        this.gameOverSound = new Audio("./assets/audio/gameover.mp3")
         
 
     }
@@ -71,8 +71,8 @@ class Game {
             this.score++;
             this.eatSound.play();
             // para subir velocidad
-            if (this.score % 7 === 0 ) {
-                this.speed += 3;
+            if (this.score % 5 === 0 ) {
+                this.speed += 2;
                 clearInterval(this.interval);
                 this.interval = null;
                 this.start();

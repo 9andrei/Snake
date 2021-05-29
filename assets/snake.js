@@ -20,7 +20,7 @@ class Snake {
     }
 
     draw() {
-        this.ctx.fillStyle = "black";
+        this.ctx.fillStyle = "rgb(255, 195, 11)";
             for (let i = 0; i < this.snakeParts.length; i++) {
                 this.part = this.snakeParts[i];
                 this.ctx.fillRect(
@@ -35,7 +35,7 @@ class Snake {
             this.snakeParts.shift();
         }
 
-        this.ctx.fillStyle = "black";
+        this.ctx.fillStyle = "rgb(11, 37, 38)";
         this.ctx.fillRect(
             this.headX * this.tileCount,
             this.headY * this.tileCount, 

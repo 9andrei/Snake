@@ -21,14 +21,21 @@ canvas {
     background-color: black;
 }
 
-/* #cover {
+#cover {
+    width: 676px;
+    height: 676px; 
     z-index: 2;
+    font-size: 2rem;
     position: absolute;
     color: white;
     display: flex;
     justify-content: center;
-    align-self: center;
-} */
+    align-items: center;
+}
+
+.transparent {
+    visibility: hidden;
+}
 
 #main {
     display: flex;
