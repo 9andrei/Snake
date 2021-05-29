@@ -71,8 +71,8 @@ class Game {
             this.score++;
             this.eatSound.play();
             // para subir velocidad
-            if (this.score % 5 === 0 ) {
-                this.speed += 5;
+            if (this.score % 7 === 0 ) {
+                this.speed += 3;
                 clearInterval(this.interval);
                 this.interval = null;
                 this.start();
