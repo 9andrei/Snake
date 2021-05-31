@@ -41,7 +41,6 @@ class Snake {
             this.headY * this.tileCount, 
             this.tileSize, 
             this.tileSize);
-
     }
 
     move() {

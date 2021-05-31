@@ -9,23 +9,22 @@ class Game {
         this.ctx = ctx;
         this.w = this.ctx.canvas.width;
         this.h = this.ctx.canvas.height;
-        this.speed = 7;
+        this.speed = 5;
         this.score = 0;
         
-        this.interval = undefined
+        this.interval = undefined;
 
         this.background = new Background(ctx);
         this.snake = new Snake(ctx);
         this.apple = new Apple(ctx);
 
         this.eatSound = new Audio("./assets/audio/audio_eat.mp3");
-        this.gameOverSound = new Audio("./assets/audio/gameover.mp3")
+        this.gameOverSound = new Audio("./assets/audio/gameover.mp3");
         
 
     }
 
     start() {
-        console.log(this.interval)
         if (!this.interval) {
             this.interval = setInterval(() => {
                 this.move();
@@ -41,8 +40,7 @@ class Game {
                       
         
                }, 1000 / this.speed);
-        }
-       
+        }  
     }
 
     draw() {
@@ -56,11 +54,11 @@ class Game {
     }
 
     clear() {
-        this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height)
-            }
+        this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+    }
 
     onKeyEvent(event) {
-        this.snake.onKeyEvent(event)
+        this.snake.onKeyEvent(event);
     }
 
     eat() {
@@ -70,15 +68,13 @@ class Game {
             this.snake.tailLength++;
             this.score++;
             this.eatSound.play();
-            // para subir velocidad
+
             if (this.score % 5 === 0 ) {
-                this.speed += 2;
+                this.speed++;
                 clearInterval(this.interval);
                 this.interval = null;
                 this.start();
-
             }
-
         }
     }
 
